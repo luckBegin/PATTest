@@ -14,3 +14,4 @@ rl.on('line', (cmd) => {
 	console.log(sum( arr[0] / 1 , arr[1] / 1 )) ;
 	rl.close() ;
 });
+ 

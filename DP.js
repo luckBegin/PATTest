@@ -29,7 +29,7 @@ const optCache = function(arr, i) {
 			const b = optCache(arr, i - 1);
 			val = Math.max(a, b);
 		}
-	};
+	}
 
 	cache[i] = val ;
 	return val ;
