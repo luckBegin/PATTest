@@ -27,35 +27,40 @@ class Graph {
 	}
 
 	BFS( start: any ):void{
-
 		const visited: any[] = [] ;
-
 		const arr = [] ;
-
 		arr.push( start ) ;
-
 		while ( arr.length > 0 ){
-
 			const vertexIndex = this.vertexIndex( arr.shift() ) ;
-
 			if( visited.indexOf( vertexIndex ) === - 1){
-
 				console.log( this.vertex[vertexIndex] ) ;
-
 				const edges = this.edges[vertexIndex] ;
-
 				edges.forEach( ( item , idx ) => {
 					if( item === 1 )
 						arr.push( this.vertex[ idx ]) ;
-				})
-
+				}) ;
 				visited.push( vertexIndex )
 			}
 		}
 	}
 
 	DFS( start: any ): void{
-
+		const stack: string[] = [] ;
+		const visted :string[] = [] ;
+		stack.push( start ) ;
+		while ( stack.length > 0 ) {
+			var top = stack.shift() ;
+			visted.push( top ) ;
+			console.log( top ) ;
+			var adjVertex = this.edges[this.vertexIndex( top )];
+			adjVertex.forEach( (item , index ) => {
+				var vtx = this.vertex[index] ;
+				if( item && visted.indexOf( vtx ) <= -1 ) {
+					stack.push( vtx ) ;
+					visted.push( vtx ) ;
+				}
+			})
+		}
 	}
 }
 
@@ -73,5 +78,5 @@ graph.addEdge("V2" , "V5") ;
 graph.addEdge("V3" , "V4") ;
 graph.addEdge("V4" , "V5") ;
 
-
+graph.DFS("V1") ;
 graph.BFS("V1") ;

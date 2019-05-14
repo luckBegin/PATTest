@@ -40,6 +40,23 @@ var Graph = /** @class */ (function () {
         }
     };
     Graph.prototype.DFS = function (start) {
+        var _this = this;
+        var stack = [];
+        var visted = [];
+        stack.push(start);
+        while (stack.length > 0) {
+            var top = stack.shift();
+            visted.push(top);
+            console.log(top);
+            var adjVertex = this.edges[this.vertexIndex(top)];
+            adjVertex.forEach(function (item, index) {
+                var vtx = _this.vertex[index];
+                if (item && visted.indexOf(vtx) <= -1) {
+                    stack.push(vtx);
+                    visted.push(vtx);
+                }
+            });
+        }
     };
     return Graph;
 }());
@@ -55,4 +72,5 @@ graph.addEdge("V2", "V3");
 graph.addEdge("V2", "V5");
 graph.addEdge("V3", "V4");
 graph.addEdge("V4", "V5");
+graph.DFS("V1");
 graph.BFS("V1");
