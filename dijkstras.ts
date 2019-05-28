@@ -1,5 +1,4 @@
 // 为体现 所在地列表中 优先级的概念 此处使用 Priority-Queue 也就是优先队列
-
 // 优先队列的项
 class PQItem {
 	priority: number ;
