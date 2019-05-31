@@ -11,4 +11,4 @@ var InsertSort = function (arr) {
     }
     return arr;
 };
-console.log( InsertSort([4,6,2,3,5 , 1]) );
+console.log( InsertSort([4,6,2,3,5 ,1]) );
